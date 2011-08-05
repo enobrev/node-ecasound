@@ -1,0 +1,87 @@
+Possible Interfaces
+--------------------
+
+    ecasound = new ECASound({
+        bg:    'music1.wav',
+        two:   'music2.wav',
+        three: 'music3.wav'
+    });
+
+    ecasound._.bg
+        .queue(40)
+        .play(0)
+        .until(173)
+        .volume(0)
+        .fade(100, 2)
+        .fade( 20, 4, 'two.start   - 2')
+        .fade(100, 4, 'two.end     - 2')
+        .fade( 20, 4, 'three.start - 2')
+        .fade(100, 4, 'three.end   - 2')
+        .fade(  0, 4, 'bg.end      - 2')
+
+    ecasound._.two
+        .play(5.7)
+        .volume(0)
+        .fade(100, 2)
+        .fade(  0, 2, 'bg.end      - 2')
+
+    ecasound._.three
+        .play(33.3)
+        .volume(0)
+        .fade(100, 2)
+        .fade(  0, 2, 'bg.end      - 2')
+
+    // --------------
+
+    var oBG  = new Track('bg',    'music1.wav').queue(40);
+    var oOne = new Track('two',   'music2.wav');
+    var oTwo = new Track('three', 'music3.wav');
+
+    oBG.play(0)
+        .until(173)
+        .volume(0)
+        .fade(100, 2)
+        .fade( 20, 4, 'two.start   - 2')
+        .fade(100, 4, 'two.end     - 2')
+        .fade( 20, 4, 'three.start - 2')
+        .fade(100, 4, 'three.end   - 2')
+        .fade(  0, 4, 'bg.end      - 2')
+
+    oOne.play(5.7)
+        .volume(0)
+        .fade(100, 2)
+        .fade(  0, 2, 'bg.end      - 2')
+
+    oTwo.play(33.3)
+        .volume(0)
+        .fade(100, 2)
+        .fade(  0, 2, 'bg.end      - 2')
+
+    ecasound = new ECASound(oBG, oOne, oTwo);
+
+    // --------------
+
+    var oBG  = new Track('bg',    'music1.wav').queue(40);
+    var oOne = new Track('two',   'music2.wav');
+    var oTwo = new Track('three', 'music3.wav');
+
+    new ECASound(
+        oBG.play(0)
+            .until(173)
+            .volume(0)
+            .fade(100, 2)
+            .fade( 20, 4, 'two.start   - 2')
+            .fade(100, 4, 'two.end     - 2')
+            .fade( 20, 4, 'three.start - 2')
+            .fade(100, 4, 'three.end   - 2')
+            .fade(  0, 4, 'bg.end      - 2'),
+        oOne.play(5.7)
+            .volume(0)
+            .fade(100, 2)
+            .fade(0,   2, 'bg.end      - 2'),
+        oTwo.play(33.3)
+            .volume(0)
+            .fade(100, 2)
+            .fade(0,   2, 'bg.end      - 2')
+    );
+

@@ -1,0 +1,16 @@
+{
+    "author": "Mark Armendariz <src@enobrev.com> (http://enobrev.com/)",
+    "name": "ecasound",
+    "main": "index",
+    "description": "Use ecasound to create or modify audio files",
+    "version": "0.1.0",
+    "homepage": "http://enobrev.com/",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/enobrev/node-ecasound.git"
+    },
+    "main" : "./lib/ecasound",
+    "directories" : {
+        "lib": "./lib"
+    }
+}
